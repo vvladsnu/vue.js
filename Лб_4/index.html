@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ImgChange</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <style>
+    .test {
+      width: 100px;
+      height: 150px;
+      border: 3px solid #000;
+    }
+	.m1 {
+	margin:32px;
+	}
+	.m2 {
+	margin:35px;
+	}
+	.m3 {
+	margin:35px;
+	}
+	.m4 {
+	margin:35px;
+	}
+	
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    
+   
+    <label for="height1">
+      <strong>AO-1: </strong>
+    </label>
+	
+    <input type="number" name="height1" v-model="height1">
+    <br>
+	
+	 <label for="height2">
+      <strong>AO-2: </strong>
+    </label>
+	<input type="number" name="height2" v-model="height2">
+	<br>
+	
+	<label for="height3">
+      <strong>AO-3: </strong>
+    </label>
+	<input type="number" name="height3" v-model="height3">
+	<br>
+	
+	<label for="height4">
+      <strong>AO-4: </strong>
+    </label>
+	<input type="number" name="height4" v-model="height4">
+   <br>
+	 <br>
+	<img src="red.jpg" v-bind:alt="alt" class="test" v-bind:style="[resizeStyle1]">
+	<img src="blue.jpg" v-bind:alt="alt" class="test" v-bind:style="[resizeStyle2]">
+	<img src="grey.jpg" v-bind:alt="alt" class="test" v-bind:style="[resizeStyle3]">
+	<img src="yellow.jpg" v-bind:alt="alt" class="test" v-bind:style="[resizeStyle4]">
+	<br>
+	
+	<label class="m1" for="height3">
+      <strong>AO-1</strong>
+    </label>
+
+	<label class="m2" for="height3">
+      <strong>AO-2 </strong>
+    </label>
+	<label class="m3" for="height3">
+      <strong>AO-3 </strong>
+    </label>
+	<label class="m4" for="height3">
+      <strong>AO-4 </strong>
+    </label>
+	
+
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        width: 100,
+        height1: 200,
+		 height2: 100,
+		  height3: 250,
+		   height4: 300,
+        border_color: '#000',
+        border_w: 3,
+        alt: 'Picture'
+      },
+      computed: {
+        resizeStyle1: function () {
+          return {
+            
+            height: this.height1 + 'px'
+          }
+        },
+		 resizeStyle2: function () {
+          return {
+            
+            height: this.height2 + 'px'
+          }
+        },
+		 resizeStyle3: function () {
+          return {
+            
+            height: this.height3 + 'px'
+          }
+        },
+		 resizeStyle4: function () {
+          return {
+            
+            height: this.height4 + 'px'
+          }
+        }
+        
+      }
+    })
+  </script>
+</body>
+
+</html>

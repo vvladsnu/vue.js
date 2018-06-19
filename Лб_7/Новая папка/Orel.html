@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ImgChange</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <style>
+    .test {
+      width: 100px;
+      height: 150px;
+      border: 3px solid #000;
+    }
+	.m1 {
+	margin:20px;
+	}
+	.m2 {
+	margin:20px;
+	}
+	.m3 {
+	margin:21px;
+	}
+	.m4 {
+	margin:13px;
+	}
+	.m5 {
+	margin:50px;
+	}
+	.m6 {
+	
+	margin-left:20px;
+	}
+	.m7 {
+	margin:5px;
+	margin-left:35px;
+	}
+	
+	.center{
+	 
+	 border: 1px solid black;
+    padding: 10px;
+	 max-width: 230px;
+	}
+	
+  </style>
+</head>
+
+<body>
+
+<table>
+<div class="center"  >
+    <label class="m5" for="height1">
+      <strong>Орел и Решка </strong>
+    </label>
+	<br>
+	 <label for="height2">
+      Выберите ваш уровень:
+    </label>
+	<br>
+	
+	<input type="radio" id="contactChoice1"
+     name="level" value="easy">
+	<label for="contactChoice1">Новичек</label>
+	<br>
+
+    <input type="radio" id="contactChoice2"
+     name="level" value="medium">
+    <label for="contactChoice2">Любитель</label>
+	<br>
+    <input type="radio" id="contactChoice3"
+     name="level" value="hard">
+    <label for="contactChoice3">Профессионал</label>
+  
+     <hr align="left" width="230px">
+  </hr>
+   <label class="m1" >Старт</label>
+   <label class="m2" >Финиш</label>
+   <br>
+   <label class="m4" >100 грн</label>
+   <label class="m3" >300 грн</label>
+    <hr align="left" width="230px">
+  </hr> 
+  <hr align="left" width="230px">
+  </hr>
+  <div id="example-1">
+   <label style="margin-left:30px">Ваша ставка в гривнах:</label>
+   
+  <input style="margin-left:80px" value="1" type="number" name="height2" min="1" v-model="value" max="value" >
+   
+  
+  
+  <button v-on:click="counter += 1" class="m7"><img src="Anonymous_two_red_dice.png" width="80px" alt="Кубик" 
+          style="vertical-align: middle"> Бросок</button>
+
+	
+
+		<label style="margin-left:50px">У вас в кармане:</label> 
+<input class="m6" type="number" name="height" v-model="value" >
+грн.		
+<br>
+<label style="margin-left:10px">Количество сделаных бросков:</label> 
+<input class="m6" type="number" name="height2" v-model="counter"  >
+</div>
+ <hr align="left" width="230px">
+  </hr>
+  <button style="margin-left:87px ">
+  Сброс
+  </button>
+ 
+   </div>
+
+
+
+  <script>
+    
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    counter: 0,
+	value:0
+	
+
+  }
+})
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ImgChange</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <style>
+    .test {
+      width: 100px;
+      height: 150px;
+      border: 3px solid #000;
+    }
+	.m1 {
+	margin:20px;
+	}
+	.m2 {
+	margin:20px;
+	}
+	.m3 {
+	margin:21px;
+	}
+	.m4 {
+	margin:13px;
+	}
+	.m5 {
+	margin:50px;
+	}
+	.m6 {
+	
+	margin-left:20px;
+	}
+	.m7 {
+	margin:5px;
+	margin-left:35px;
+	}
+	
+	.center{
+	 
+	 border: 1px solid black;
+    padding: 10px;
+	 max-width: 230px;
+	}
+	
+  </style>
+</head>
+
+<body>
+
+<div class="center" id="emit-example-argument" >
+
+    <label class="m5" for="height1">
+      <strong>Орел и Решка </strong>
+    </label>
+	<br>
+	 <label for="height2">
+      Выберите ваш уровень:
+    </label>
+	<br>
+	
+	<input type="radio" id="contactChoice1"
+     name="level" value="easy">
+	<label for="contactChoice1">Новичек</label>
+	<br>
+
+    <input type="radio" id="contactChoice2"
+     name="level" value="medium">
+    <label for="contactChoice2">Любитель</label>
+	<br>
+    <input type="radio" id="contactChoice3"
+     name="level" value="hard">
+    <label for="contactChoice3">Профессионал</label>
+  
+     <hr align="left" width="230px">
+  </hr>
+   <label class="m1" >Старт</label>
+   <label class="m2" >Финиш</label>
+   <br>
+   <label class="m4" >100 грн</label>
+   <label class="m3" >300 грн</label>
+    <hr align="left" width="230px">
+  </hr> 
+  <hr align="left" width="230px">
+  </hr>
+ 
+   <label style="margin-left:30px">Ваша ставка в гривнах:</label>
+   
+  <input style="margin-left:80px" value="1" type="number" name="height2" v-model="stavka" min="1"  max="50" >
+   
+  
+  
+  
+  <magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball>
+  
+
+
+
+ 
+	
+		<label style="margin-left:50px">У вас в кармане:</label> 
+		
+
+<input class="m6" type="number" name="many" v-model="many" min="1" max="300" >
+грн.		
+<br>
+<label style="margin-left:10px">Количество сделаных бросков:</label> 
+<input class="m6" type="number" name="counter" v-model="counter"  >
+
+ <hr align="left" width="230px">
+  </hr>
+
+
+
+    
+   </div>
+   
+   <div>
+   <input type="reset" value="Сброс">
+</div>
+	
+
+
+  <script>
+    
+	  Vue.component('magic-eight-ball', {
+
+ data: 
+  function () {
+    return {
+      possibleAdvice: ['Вы угадали Орел', 'Вы угадали Решка','Вы ошиблись Орел','Вы ошиблись Решка'],
+	   
+  
+    }
+  },
+    
+  methods: {
+    giveAdvice: function () {
+      var randomAdviceIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+      this.$emit('give-advice', this.possibleAdvice[randomAdviceIndex])
+    }
+  },
+  template: `
+  <button v-on:click="giveAdvice" class="m7"><img src="orel-reshka.jpg" width="80px" alt="Кубик" 
+          style="vertical-align: middle"> Бросок</button>
+    
+  `
+})
+new Vue({
+  el: '#emit-example-argument',
+  data:{
+  counter:0,
+  many:0,
+  stavka:0
+ 
+  
+  },
+
+ 
+  methods: {
+    showAdvice: function (advice) {
+	
+      alert(advice),
+	  
+	  	 this.counter = this.counter + 1,
+		 
+		this.many += this.stavka * 2
+	
+		
+	 
+    }
+  }
+})
+
+  </script>
+  
+</body>
+
+</html>
