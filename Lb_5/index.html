@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stipendia</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="app">
+    <div class="container">
+      <div class="wrap">
+        <form name="forma">
+          <label for="step">Введите размер стипендии:</label>
+          <input type="number" name="step" v-model="step">
+          <table>
+            <thead>
+              <tr>
+                <td></td>
+                <td>Отлично</td>
+                <td>Хорошо</td>
+                <td>Удовл.</td>
+                <td>Не сдал</td>
+                <td>Оценка</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Математика</td>
+                <td>
+                  <input type="radio" name="math" :value="5" v-model="pickedMath"> </td>
+                <td>
+                  <input type="radio" name="math" :value="4" v-model="pickedMath"> </td>
+                <td>
+                  <input type="radio" name="math" :value="3" v-model="pickedMath"> </td>
+                <td>
+                  <input type="radio" name="math" :value="2" v-model="pickedMath"> </td>
+                <td>{{ pickedMath }}</td>
+              </tr>
+              <tr>
+                <td>История</td>
+                <td>
+                  <input type="radio" name="history" :value="5" v-model="pickedHistory"> </td>
+                <td>
+                  <input type="radio" name="history" :value="4" v-model="pickedHistory"> </td>
+                <td>
+                  <input type="radio" name="history" :value="3" v-model="pickedHistory"> </td>
+                <td>
+                  <input type="radio" name="history" :value="2" v-model="pickedHistory"> </td>
+                <td>{{ pickedHistory }}</td>
+              </tr>
+              <tr>
+                <td>Физика</td>
+                <td>
+                  <input type="radio" name="physics" :value="5" v-model="pickedPhysics"> </td>
+                <td>
+                  <input type="radio" name="physics" :value="4" v-model="pickedPhysics"> </td>
+                <td>
+                  <input type="radio" name="physics" :value="3" v-model="pickedPhysics"> </td>
+                <td>
+                  <input type="radio" name="physics" :value="2" v-model="pickedPhysics"> </td>
+                <td>{{ pickedPhysics }}</td>
+              </tr>
+              <tr>
+                <td>Информатика</td>
+                <td>
+                  <input type="radio" name="cs" :value="5" v-model="pickedCs"> </td>
+                <td>
+                  <input type="radio" name="cs" :value="4" v-model="pickedCs"> </td>
+                <td>
+                  <input type="radio" name="cs" :value="3" v-model="pickedCs"> </td>
+                <td>
+                  <input type="radio" name="cs" :value="2" v-model="pickedCs"> </td>
+                <td>{{ pickedCs }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <input type="button" value="Рассчитать" @click="stipCalc">
+          <input type="button" value="Очистить" @click="resetValues">
+          <br>
+          <p>{{ result }}</p>
+          <br>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
